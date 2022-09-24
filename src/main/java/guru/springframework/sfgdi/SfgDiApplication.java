@@ -33,5 +33,7 @@ public class SfgDiApplication {
 		System.out.println(constructorInjectedController.getGreeting());
 
 	}
-
+	public void masterHello (){
+		System.out.println("master saying Hello bugfix");
+	}
 }
