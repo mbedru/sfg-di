@@ -1,5 +1,9 @@
 # Dependency Injection Examples(new branch  for==>>> Springframework Configuration)Section#6
 
+if we own the code we use @Stereotypes(@Comp @Controller @Repository...)
+but if we dont know to use to include it in your context as bean 
+@Configuration Classachen west enasgebawalen to use it... b/c the code/method/class is not with us(for us to add an annotation to it)
+
 This repository is for an example application built in my [Spring Framework 5 - Beginner to Guru](https://www.udemy.com/testing-spring-boot-beginner-to-guru/?couponCode=GITHUB_REPO) online course
 
 As you work through the course, please feel free to fork this repository to your out GitHub repo. Most links contain links 

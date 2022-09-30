@@ -1,10 +1,10 @@
 package guru.springframework.sfgdi.services;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+//import org.springframework.context.annotation.Profile;
+//import org.springframework.stereotype.Service;
 
-@Profile({"EN", "default"})
-@Service("i18Service")
+//@Profile({"EN", "default"})
+//@Service("i18Service")
 public class I18nEnglishService implements GreetingService{
 
     @Override

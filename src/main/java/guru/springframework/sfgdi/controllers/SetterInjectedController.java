@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 public class SetterInjectedController {
 
     private GreetingService greetingService;//private b/c it have a setter to allow others initiating/{inject to it} its value.
-    @Qualifier("setterGreetingService")
+    @Qualifier("setterGreetServ")
     @Autowired
     public void setGreetingService(GreetingService greetingService) {
         this.greetingService = greetingService;

@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 
-@Service
+//@Service
 public class PropertyGreetingService implements GreetingService{
     @Override
     public String sayGreeting() {
