@@ -5,7 +5,7 @@ package guru.springframework.sfgdi.services;
 
 //@Profile("ES")
 //@Service("i18Service")//qualify me by this name
-public class I18SpanishService implements GreetingService{
+public class I18SpanishGreetingService implements GreetingService{
     @Override
     public String sayGreeting() {
         return "Hola Mundo -ES";
