@@ -4,7 +4,10 @@ import guru.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+//on using @Components scan while spring starts it utilizes java REFLECTION(w/c is very slow) utils to inspect/scan classes.//but here we only have few classes--NoProblem.
+@ComponentScan(basePackages = {"guru.springframework.sfgdi","com.springframework.pets"})//also works like this//@ComponentScan({"guru.springframework.sfgdi","com.springframework.pets"})
 @SpringBootApplication
 public class SfgDiApplication {
 
