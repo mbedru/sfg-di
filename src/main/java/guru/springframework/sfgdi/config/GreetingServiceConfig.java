@@ -1,5 +1,7 @@
 package guru.springframework.sfgdi.config;
 
+import com.springframework.pets.PetService;
+import com.springframework.pets.PetServiceFactory;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
@@ -14,6 +16,33 @@ import org.springframework.context.annotation.Profile;
 //@ComponentScan will find this @Configuration
 @Configuration//means we will define some beans in this class.
 public class GreetingServiceConfig {
+
+    @Bean
+    PetServiceFactory petServiceFactory() {
+        return new PetServiceFactory();
+    }
+
+    @Profile({"dog", "default"})
+    @Bean("pet")
+    PetService dogPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("dog");
+    }
+    @Profile("cat")
+    @Bean("pet")
+    PetService catPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("cat");
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     @Bean
     ConstructorGreetingService constructorGreetingService() {//fn name will be name of bean(startingWithLowerCase) created ant context for this bean
