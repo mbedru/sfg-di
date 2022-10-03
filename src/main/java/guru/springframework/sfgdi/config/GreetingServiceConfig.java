@@ -2,18 +2,31 @@ package guru.springframework.sfgdi.config;
 
 import com.springframework.pets.PetService;
 import com.springframework.pets.PetServiceFactory;
+import guru.springframework.sfgdi.datasource.FakeDataSource;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 //1.When the code is ours we use @Stereotypes/annotations for ConponentScan to get it and add it to our context as bean.
 //2.But if we dont own the code we cant add @Stereotypes to it so we use @Configurations to add all the beans that we want spring to catch and add it to our context as a bean.
 
 //@ComponentScan will find this @Configuration
+
+@PropertySource("classpath:datasource.properties")//where the property file is
 @ImportResource("classpath:sfgdi-config.xml")//this@ here or could also be in the mainAppClass(where @Springbootlication)
 @Configuration//means we will define some beans in this class.
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${guru.username}") String username,@Value("${guru.password}") String password, @Value("${guru.jdbcurl}") String jdbcurl){
+        FakeDataSource  fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(jdbcurl);
+        return fakeDataSource;
+    }
 
     @Bean
     PetServiceFactory petServiceFactory() {
