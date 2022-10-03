@@ -14,7 +14,7 @@ import org.springframework.context.annotation.*;
 
 //@ComponentScan will find this @Configuration
 
-@PropertySource("classpath:datasource.properties")//where the property file is
+//@PropertySource("classpath:datasource.properties")//where the property file is//now since we are using the normal spring-boot(not spring)properties file it'll automaticallyPickUp application.Properties file from resource
 @ImportResource("classpath:sfgdi-config.xml")//this@ here or could also be in the mainAppClass(where @Springbootlication)
 @Configuration//means we will define some beans in this class.
 public class GreetingServiceConfig {
