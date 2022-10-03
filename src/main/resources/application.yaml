@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dog,EN,dev
+    active: dog,EN,qa
 guru:
   username: mame
   password: 123
