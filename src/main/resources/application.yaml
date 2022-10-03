@@ -1,7 +1,19 @@
 spring:
   profiles:
-    active: dog,EN,qa
+#    active: dog,EN,prod        this is the way; but as list is also possible
+     active:
+       - dog
+       - EN
+       - prod
 guru:
   username: mame
   password: 123
   jdbcurl: someUrlforDB
+
+---
+spring:
+  profiles: prod
+guru:
+  username: YmlProdUserName
+  password: YmlProdPasswork
+  jdbcurl: YmlProdUrl
