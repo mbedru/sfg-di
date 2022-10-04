@@ -7,6 +7,7 @@ import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
 //1.When the code is ours we use @Stereotypes/annotations for ConponentScan to get it and add it to our context as bean.
@@ -15,16 +16,17 @@ import org.springframework.context.annotation.*;
 //@ComponentScan will find this @Configuration
 
 //@PropertySource("classpath:datasource.properties")//where the property file is//now since we are using the normal spring-boot(not spring)properties file it'll automaticallyPickUp application.Properties file from resource
+@EnableConfigurationProperties(SfgConstructorConfig.class)//for Constructor Binding(properties) wehavetobringintheClass/classes that we wanttoperformclassbindinon, sothatit'llbebroughtinasaSpringcomponent, thenwedonthavetoinjectittouseittouseit.
 @ImportResource("classpath:sfgdi-config.xml")//this@ here or could also be in the mainAppClass(where @Springbootlication)
 @Configuration//means we will define some beans in this class.
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(SfgConfuguration sfgConfuguration){//now we dont use @Value()//since we already have the properties on our sfgConfiguration
+    FakeDataSource fakeDataSource(SfgConstructorConfig sfgConstructorConfig){//now we dont use @Value()//since we already have the properties on our sfgConfiguration
         FakeDataSource  fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(sfgConfuguration.getUsername());
-        fakeDataSource.setPassword(sfgConfuguration.getPassword());
-        fakeDataSource.setJdbcurl(sfgConfuguration.getJdbcurl());
+        fakeDataSource.setUsername(sfgConstructorConfig.getUsername());
+        fakeDataSource.setPassword(sfgConstructorConfig.getPassword());
+        fakeDataSource.setJdbcurl(sfgConstructorConfig.getJdbcurl());
         return fakeDataSource;
     }
 
