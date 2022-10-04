@@ -15,5 +15,5 @@ spring:
   profiles: prod
 guru:
   username: YmlProdUserName
-  password: YmlProdPasswork
+  password: YmlProdPassword
   jdbcurl: YmlProdUrl
